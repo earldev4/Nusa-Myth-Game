@@ -13,7 +13,7 @@ Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana playe
 
 ## Cara Bermain 
 ![Main Menu Game](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/fc81aba2-96f5-4688-811d-5b054d7c1dfb)
-- Tampilan Main mENU, untuk memulai permainan pencet lah tombol PLAY
+- Tampilan Main Menu, untuk memulai permainan pencet lah tombol PLAY
 
 ![Gameplay](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/7f6f78d3-8f29-49a3-bcf5-ddf53a273c6e)
 - Berikut merupakan sebuah tampilan gameplay. untuk menyerang musuh, arahkan kursor mouse ke karakter musuh sampai ada tampilan pedang dan klik kiri untuk menyerang karakter musuh, dan kamu juga bisa melakukan health dengan dengan menekan ikon health
