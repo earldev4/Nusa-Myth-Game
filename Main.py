@@ -221,6 +221,57 @@ class Mage:
     def draw(self):
         screen.blit(self.image, self.image_rect)
 
+class HealthBar():
+    def __init__(self, x, y, health, max_health):
+        self.x = x
+        self.y = y
+        self.health = health
+        self.max_health = max_health
     
+    def draw (self, health):
+        self.health = health
+        ratio = self.health / self.max_health
+        pygame.draw.rect(screen, 'Red', (self.x, self.y, 300, 20))
+        pygame.draw.rect(screen, 'Green', (self.x, self.y, 300 * ratio, 20))    
 
+class Panelinfo(pygame.sprite.Sprite):
+    def __init__(self, x, y, damage, color):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = text_font.render(damage, False, color)
+        self.rect = self.image.get_rect(center=(x, y))
+        self.counter = 0
 
+    def update(self):
+        self.rect.y -= 1
+        self.counter += 1
+        if self.counter > 30:
+            self.kill()
+
+panel_text_group = pygame.sprite.Group()
+
+def show_background():
+    upper_background = pygame.image.load('background/upper_background.png').convert_alpha()
+    upper_rect = upper_background.get_rect(topleft = (0,0))
+    screen.blit(upper_background, upper_rect)
+
+def draw_text(text, font, text_col, x, y):
+    img = font.render(text, False, 'Green')
+    screen.blit(img, (x, y))
+
+def draw_panel():
+    lower_background = pygame.image.load('background/lower_background.png').convert_alpha()
+    lower_rect = lower_background.get_rect(topleft = (0,500))
+    screen.blit(lower_background, lower_rect)
+    draw_text(f'{Player_obj.name} HP: {Player_obj.health}', text_font, 'Green', 100, 510)
+    draw_text(f'{Enemy_obj.name} HP: {Enemy_obj.health}', text_font, 'Green', 900, 510)
+    draw_text(f'Ramuan tersisa: {Player_obj.potions}', text_font,'Green', 160, 600)
+
+Player_obj = Warrior('Gatot Kaca', 'Player', 100,100, 10, 5, 1)
+Enemy_obj = Warrior('Gatot Kaca', 'Enemy', 100,100, 10, 5, 1)
+
+Player_health_bar = HealthBar(100, 550, Player_obj.health, Player_obj.max_health)
+Enemy_health_bar = HealthBar(900, 550, Enemy_obj.health, Player_obj.max_health)
+
+potion_button = button.Button(screen, 100, 580, potion_image , 50, 50)
+restart_button = button.Button(screen, 300, 10, restart_image, 200, 120)
+back_button = button.Button (screen, 700, 10, back_to_menu, 200, 120)
