@@ -275,3 +275,56 @@ Enemy_health_bar = HealthBar(900, 550, Enemy_obj.health, Player_obj.max_health)
 potion_button = button.Button(screen, 100, 580, potion_image , 50, 50)
 restart_button = button.Button(screen, 300, 10, restart_image, 200, 120)
 back_button = button.Button (screen, 700, 10, back_to_menu, 200, 120)
+
+while True:
+
+    show_background()
+    draw_panel()
+    Player_health_bar.draw(Player_obj.health)
+    Enemy_health_bar.draw(Enemy_obj.health)
+    Player_obj.update()
+    Player_obj.draw()
+    Enemy_obj.update()
+    Enemy_obj.draw()
+
+    panel_text_group.update()
+    panel_text_group.draw(screen)
+    attack = False
+    potion = False
+    target = None
+    pygame.mouse.set_visible(True)
+    mous_pos = pygame.mouse.get_pos()
+    if Enemy_obj.image_rect.collidepoint(mous_pos):
+        pygame.mouse.set_visible(False)
+        screen.blit(sword_image, mous_pos)
+        if mous_clicked == True and Enemy_obj.alive == True:
+            attack = True
+            target = Enemy_obj
+    if potion_button.draw():
+        potion = True
+
+    if game_over == 0:
+        #PLAYER ACTION
+        if Player_obj.alive:
+            if current_fighter == 1:
+                action_cooldown += 1
+                if action_cooldown >= action_wait_time:
+                    if attack == True and target != None:
+                        Player_obj.attack_target(Enemy_obj)
+                        current_fighter += 1
+                        action_cooldown = 0
+                    if potion == True:
+                        if Player_obj.potions > 0:
+                            if Player_obj.max_health - Player_obj.health > 30:
+                                heal_amount = 30
+                            else:
+                                heal_amount = Player_obj.max_health - Player_obj.health
+                            Player_obj.health += heal_amount
+                            panel_text = Panelinfo(Player_obj.image_rect.centerx, Player_obj.image_rect.y, f'Health + {heal_amount}', 'Green')
+                            panel_text_group.add(panel_text)
+                            Player_obj.potions -= 1
+                            action_cooldown = 0
+                            current_fighter += 1
+                            potion = False
+        else:
+            game_over = -1
