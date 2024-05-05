@@ -16,7 +16,7 @@ Tampilan Main main, untuk memulai permainan pencet lah tombol PLAY
 SOON
 
 ## Kontributor Pengembang Aplikasi
-- Arkan Haris Candrawinata Liem
+- Arkan Hariz Chandrawinata Liem
 - Bagas Andreanto
 - Deva Ahmad
 - Dzaki Gastiadirijal
