@@ -1,4 +1,4 @@
-class Button():
+class MenuButton():
     def __init__(self, image, pos, text_input, font, base_color, hovering_color, text_y_offset=0):
         self.image = image
         self.x_pos = pos[0]
