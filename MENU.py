@@ -1,6 +1,6 @@
 import pygame, sys
 from subprocess import call
-from menu_button import Button
+from menu_button import MenuButton
 from pygame import mixer
 
 pygame.init()
@@ -39,14 +39,14 @@ def options():
         DISPLAY.blit(BACKGROUND, (0, 0))
 
 
-        OPTIONS_BACK = Button(image=None, pos=(640, 460), 
+        OPTIONS_BACK = MenuButton(image=None, pos=(640, 460), 
                             text_input="BACK", font=get_font(75), base_color="White", hovering_color=(23,161,117))
 
         OPTIONS_BACK.changeColor(POSISI_MOUSE)
         OPTIONS_BACK.update(DISPLAY)
 
         bgm_button_text = "Turn Music Off" if bgm_playing else "Turn Music On"
-        BGM_BUTTON = Button(image=None, pos=(640, 360), 
+        BGM_BUTTON = MenuButton(image=None, pos=(640, 360), 
                             text_input=bgm_button_text, font=get_font(40), base_color="White", hovering_color=(23,161,117))
 
         BGM_BUTTON.changeColor(POSISI_MOUSE)
@@ -97,7 +97,7 @@ def credit():
             DISPLAY.blit(credit_text, credit_rect)
             y_offset += 50
 
-        CREDIT_BACK = Button(image=None, pos=(640, 650), 
+        CREDIT_BACK = MenuButton(image=None, pos=(640, 650), 
                             text_input="BACK", font=get_credit_font(40), base_color="White", hovering_color=(23,161,117))
 
         CREDIT_BACK.changeColor(CREDIT_MOUSE_POS)
@@ -123,14 +123,14 @@ def main_menu():
         main_menu_title = pygame.image.load("MAIN MENU/object/Nusa Myth.png")
         MENU_RECT = main_menu_title.get_rect(center=(640, 100))
         
-        PLAY_BUTTON = Button(image=pygame.image.load("MAIN MENU/object/Brick.png"), pos=(640, 275), 
+        PLAY_BUTTON = MenuButton(image=pygame.image.load("MAIN MENU/object/Brick.png"), pos=(640, 275), 
                             text_input="PLAY", font=get_font(80), base_color="White", hovering_color=(32, 30, 29),text_y_offset=10)
-        OPTIONS_BUTTON = Button(image=pygame.image.load("MAIN MENU/object/Brick.png"), pos=(640, 400), 
+        OPTIONS_BUTTON = MenuButton(image=pygame.image.load("MAIN MENU/object/Brick.png"), pos=(640, 400), 
                             text_input="SETTINGS", font=get_font(80), base_color="White", hovering_color=(32, 30, 29),text_y_offset=10)
-        CREDIT_BUTTON = Button(image=pygame.image.load("MAIN MENU/object/Brick.png"), pos=(640, 525), 
+        CREDIT_BUTTON = MenuButton(image=pygame.image.load("MAIN MENU/object/Brick.png"), pos=(640, 525), 
                             text_input="CREDIT", font=get_font(80), base_color="White", hovering_color=(32, 30, 29),text_y_offset=10)
 
-        QUIT_BUTTON = Button(image=pygame.image.load("MAIN MENU/object/Brick.png"), pos=(640, 650), 
+        QUIT_BUTTON = MenuButton(image=pygame.image.load("MAIN MENU/object/Brick.png"), pos=(640, 650), 
                             text_input="QUIT", font=get_font(80), base_color="White", hovering_color=(32, 30, 29),text_y_offset=10)
 
         DISPLAY.blit(main_menu_title, MENU_RECT)
