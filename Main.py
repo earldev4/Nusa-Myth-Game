@@ -103,6 +103,27 @@ class Warrior:
         self.frame_index = 0
         self.update_time = pygame.time.get_ticks()
 
+    def get_attacked(self):
+        self.action = 0
+        self.frame_index = 3
+        self.update_time = pygame.time.get_ticks()
+      
+    def dead(self):
+        self.action = 3
+        self.frame_index = 0
+        self.update_time = pygame.time.get_ticks()
+    
+    def reset(self):
+        self.alive = True
+        self.potions = self.start_potions
+        self.health = self.max_health
+        self.frame_index = 0
+        self.action = 0
+        self.update_time = pygame.time.get_ticks()
+    
+    def draw(self):
+        screen.blit(self.image, self.image_rect)
+
     
 
 
