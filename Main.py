@@ -70,7 +70,7 @@ class Warrior:
             self.image_rect = self.image.get_rect(midleft = (100, 300))
         else:
             self.image_rect = self.image.get_rect(midleft = (900, 300))
-            
+    
     def update(self):
         animation_cooldown = 100
         self.image = self.animation_list[self.action][self.frame_index]
@@ -101,8 +101,8 @@ class Warrior:
         panel_text_group.add(panel_text)
         self.action = 1
         self.frame_index = 0
-        self.update_time = pygame.time.get_ticks()
-
+        self.update_time = pygame.time.get_ticks()        
+    
     def get_attacked(self):
         self.action = 0
         self.frame_index = 3
@@ -232,7 +232,7 @@ class HealthBar():
         self.health = health
         ratio = self.health / self.max_health
         pygame.draw.rect(screen, 'Red', (self.x, self.y, 300, 20))
-        pygame.draw.rect(screen, 'Green', (self.x, self.y, 300 * ratio, 20))    
+        pygame.draw.rect(screen, 'Green', (self.x, self.y, 300 * ratio, 20))
 
 class Panelinfo(pygame.sprite.Sprite):
     def __init__(self, x, y, damage, color):
@@ -246,7 +246,7 @@ class Panelinfo(pygame.sprite.Sprite):
         self.counter += 1
         if self.counter > 30:
             self.kill()
-
+        
 panel_text_group = pygame.sprite.Group()
 
 def show_background():
@@ -266,6 +266,7 @@ def draw_panel():
     draw_text(f'{Enemy_obj.name} HP: {Enemy_obj.health}', text_font, 'Green', 900, 510)
     draw_text(f'Ramuan tersisa: {Player_obj.potions}', text_font,'Green', 160, 600)
 
+
 Player_obj = Warrior('Gatot Kaca', 'Player', 100,100, 10, 5, 1)
 Enemy_obj = Warrior('Gatot Kaca', 'Enemy', 100,100, 10, 5, 1)
 
@@ -275,6 +276,7 @@ Enemy_health_bar = HealthBar(900, 550, Enemy_obj.health, Player_obj.max_health)
 potion_button = button.Button(screen, 100, 580, potion_image , 50, 50)
 restart_button = button.Button(screen, 300, 10, restart_image, 200, 120)
 back_button = button.Button (screen, 700, 10, back_to_menu, 200, 120)
+
 
 while True:
 
@@ -327,7 +329,7 @@ while True:
                             current_fighter += 1
                             potion = False
         else:
-            game_over = -1
+            game_over = -1            
         
         #ENEMY ACTION
         if current_fighter == 2:
@@ -353,33 +355,37 @@ while True:
             else:
                 game_over = 1
 
-           #RESET THE TURN
-            if current_fighter > total_fighter:
-                current_fighter = 1
-                
-        if game_over != 0:
-            if game_over == 1:
-                screen.blit(win_image, (200,0))
-            if game_over == -1:
-                screen.blit(lose_image, (150,0))
-            if restart_button.draw():
-                Player_obj.reset()
-                Enemy_obj.reset()
-                current_fighter = 1
-                action_cooldown
-                game_over = 0
-            if back_button.draw:
-                pass
+        #RESET THE TURN
+        if current_fighter > total_fighter:
+            current_fighter = 1
 
-        #Event LOOP
-        for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    exit()
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    mouse_clicked = True
-                else:
-                    mouse_clicked = False
+    if game_over != 0:
+        if game_over == 1:
+            screen.blit(win_image, (200,0))
+        if game_over == -1:
+            screen.blit(lose_image, (150,0))
+        if restart_button.draw():
+            Player_obj.reset()
+            Enemy_obj.reset()
+            current_fighter = 1
+            action_cooldown
+            game_over = 0
+        if back_button.draw():
+            pass
 
-        pygame.display.update()
-        jam.tick(60)
+    #EVENT LOOP
+    for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mous_clicked = True
+            else:
+                mous_clicked = False
+    
+    
+    
+    pygame.display.update()
+    jam.tick(60)
+
+    
