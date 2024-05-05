@@ -5,12 +5,18 @@
 ## Deskripsi Proyek
 Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana player bisa memilih karakter. Dan juga Turn Based, dimana pemain menyerang lawan dan kemudian lawan membalas menyerang (Attack and Retaliation). Game ini mengadaptasi cerita rakyat Nusantara, dengan menggunakan tokoh-tokoh mitos sebagai karakternya. Game ini tidak menggunakan konsep pe-levelan namun Versus Mode (seperti pada game Tekken/Mortal Kombat) dimana player memilih karakter, dan komputer sebagai musuh memilih karakter secara random. 
 
-## Library
-SOON
+## Dependensi Paket (Library) yang digunakan
+- Modul Pygame
+- Modul Random
+- Modul Sys
+- Modul Subprocess
 
 ## Cara Bermain 
 ![Main Menu Game](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/fc81aba2-96f5-4688-811d-5b054d7c1dfb)
-Tampilan Main main, untuk memulai permainan pencet lah tombol PLAY
+- Tampilan Main main, untuk memulai permainan pencet lah tombol PLAY
+![Gameplay](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/7f6f78d3-8f29-49a3-bcf5-ddf53a273c6e)
+- Berikut merupakan sebuah tampilan gameplay. untuk menyerang musuh, arahkan kursor mouse ke karakter musuh sampai ada tampilan pedang dan klik kiri untuk menyerang karakter musuh, dan kamu juga bisa melakukan health dengan dengan menekan ikon health
+
 
 ## UML Diagram Proyek
 SOON
