@@ -70,5 +70,17 @@ class Warrior:
             self.image_rect = self.image.get_rect(midleft = (100, 300))
         else:
             self.image_rect = self.image.get_rect(midleft = (900, 300))
+            
+    def update(self):
+        animation_cooldown = 100
+        self.image = self.animation_list[self.action][self.frame_index]
+        if pygame.time.get_ticks() - self.update_time > animation_cooldown:
+            self.update_time = pygame.time.get_ticks()
+            self.frame_index += 1
+        if self.frame_index >= len(self.animation_list[self.action]):
+            if self.action == 3:
+                self.frame_index = len(self.animation_list[self.action]) - 1
+            else:
+                self.idle()
 
 
