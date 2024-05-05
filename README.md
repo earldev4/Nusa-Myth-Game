@@ -1,5 +1,5 @@
 # Nusa Myth
-![ICON](https://github.com/Faww-r1n/DOAIBU-Games/assets/115122603/da82a8dd-764f-4e05-ae1a-46ba9c02d0fd)
+![ICON](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/bd5e5947-5c12-46e5-87a7-a3fa8a5a4d07)
 
 
 ## Deskripsi Proyek
