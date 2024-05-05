@@ -352,3 +352,30 @@ while True:
                         action_cooldown = 0
             else:
                 game_over = 1
+
+        if game_over != 0:
+            if game_over == 1:
+                screen.blit(win_image, (200,0))
+            if game_over == -1:
+                screen.blit(lose_image, (150,0))
+            if restart_button.draw():
+                Player_obj.reset()
+                Enemy_obj.reset()
+                current_fighter = 1
+                action_cooldown
+                game_over = 0
+            if back_button.draw:
+                pass
+
+        #Event LOOP
+        for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    exit()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    mouse_clicked = True
+                else:
+                    mouse_clicked = False
+
+        pygame.display.update()
+        jam.tick(60)
