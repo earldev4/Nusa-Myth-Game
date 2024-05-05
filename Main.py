@@ -353,6 +353,10 @@ while True:
             else:
                 game_over = 1
 
+           #RESET THE TURN
+            if current_fighter > total_fighter:
+                current_fighter = 1
+                
         if game_over != 0:
             if game_over == 1:
                 screen.blit(win_image, (200,0))
