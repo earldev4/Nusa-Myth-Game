@@ -65,5 +65,10 @@ class Warrior:
             img = pygame.transform.scale(img, (img.get_width() * 3, img.get_height() * 3))
             temp_list.append(img)
         self.animation_list.append(temp_list)
+        self.image = self.animation_list[self.action][self.frame_index]
+        if self.type == 'Player':
+            self.image_rect = self.image.get_rect(midleft = (100, 300))
+        else:
+            self.image_rect = self.image.get_rect(midleft = (900, 300))
 
 
