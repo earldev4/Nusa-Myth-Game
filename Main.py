@@ -328,3 +328,27 @@ while True:
                             potion = False
         else:
             game_over = -1
+        
+        #ENEMY ACTION
+        if current_fighter == 2:
+            if Enemy_obj.alive:
+                action_cooldown += 1
+                if action_cooldown >= action_wait_time:
+                    if (Enemy_obj.health / Enemy_obj.max_health) < 0.5 and Enemy_obj.potions > 0:
+                        if Enemy_obj.max_health - Enemy_obj.health > 30:
+                                heal_amount = 30
+                        else:
+                            heal_amount = Enemy_obj.max_health - Enemy_obj.health
+                        Enemy_obj.health += heal_amount
+                        panel_text = Panelinfo(Enemy_obj.image_rect.centerx, Enemy_obj.image_rect.y, f'Health + {heal_amount}', 'Green')
+                        panel_text_group.add(panel_text)
+                        Enemy_obj.potions -= 1
+                        current_fighter += 1
+                        action_cooldown = 0
+                        potion = False
+                    else:
+                        Enemy_obj.attack_target(Player_obj)
+                        current_fighter += 1
+                        action_cooldown = 0
+            else:
+                game_over = 1
