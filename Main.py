@@ -18,4 +18,13 @@ lose_image = pygame.image.load('Background/lose_background.png').convert_alpha()
 restart_image = pygame.image.load('Items/restart.png')
 back_to_menu = pygame.image.load('Items/back.png')
 
+current_fighter = 1
+total_fighter = 2
+action_cooldown = 0
+action_wait_time = 90
+attack = False
+potion = False
+mous_clicked = False
+game_over = 0
+
 
