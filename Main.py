@@ -1,10 +1,13 @@
 import pygame
 from sys import exit
+from subprocess import call
 import random
 import button
 
 pygame.init()
-
+def menu():
+    pygame.quit()
+    call(["python", "MENU.py"])
 screen_width = 1280
 screen_height = 720
 screen = pygame.display.set_mode((screen_width, screen_height))
@@ -371,7 +374,7 @@ while True:
             action_cooldown
             game_over = 0
         if back_button.draw():
-            pass
+            menu()
 
     #EVENT LOOP
     for event in pygame.event.get():
