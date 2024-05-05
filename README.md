@@ -9,7 +9,7 @@ Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana playe
 SOON
 
 ## Cara Bermain 
-![ICON](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/bd5e5947-5c12-46e5-87a7-a3fa8a5a4d07)
+![Main Menu Game](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/fc81aba2-96f5-4688-811d-5b054d7c1dfb)
 Tampilan Main main, untuk memulai permainan pencet lah tombol PLAY
 
 ## UML Diagram Proyek
