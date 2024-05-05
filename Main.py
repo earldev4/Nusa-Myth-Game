@@ -43,5 +43,27 @@ class Warrior:
         self.action = 0
         self.update_time = pygame.time.get_ticks()
         temp_list = []
+        for i in range (8):
+            img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Idle/{i}.png').convert_alpha()
+            img = pygame.transform.scale(img, (img.get_width() * 3, img.get_height() * 3))
+            temp_list.append(img)
+        self.animation_list.append(temp_list)
+        temp_list = []
+        for i in range (8):
+            img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Attack/{i}.png').convert_alpha()
+            img = pygame.transform.scale(img, (img.get_width() * 3, img.get_height() * 3))
+            temp_list.append(img)
+        self.animation_list.append(temp_list)
+        temp_list = []
+        for i in range (3):
+            img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Attacked/{i}.png').convert_alpha()
+            img = pygame.transform.scale(img, (img.get_width() * 3, img.get_height() * 3))
+            temp_list.append(img)
+        self.animation_list.append(temp_list)
+        for i in range (10):
+            img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Dead/{i}.png').convert_alpha()
+            img = pygame.transform.scale(img, (img.get_width() * 3, img.get_height() * 3))
+            temp_list.append(img)
+        self.animation_list.append(temp_list)
 
 
