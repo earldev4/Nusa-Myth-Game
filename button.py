@@ -1,7 +1,7 @@
 import pygame 
 
-#Kelas MenuButton()
-class MenuButton():
+#Kelas Button
+class Button():
 	def __init__(self, surface, x, y, image, size_x, size_y):
 		self.image = pygame.transform.scale(image, (size_x, size_y))
 		self.rect = self.image.get_rect()
