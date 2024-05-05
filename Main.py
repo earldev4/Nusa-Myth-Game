@@ -27,4 +27,21 @@ potion = False
 mous_clicked = False
 game_over = 0
 
+class Warrior:
+    def __init__(self,name, type, health, max_health, attack, critical_damage, potions):
+        self.name = name
+        self.type = type
+        self.health = health
+        self.max_health = max_health
+        self.attack = attack
+        self.critical_damage = critical_damage
+        self.start_potions =potions
+        self.potions = potions
+        self.alive = True
+        self.animation_list = []
+        self.frame_index = 0
+        self.action = 0
+        self.update_time = pygame.time.get_ticks()
+        temp_list = []
+
 
