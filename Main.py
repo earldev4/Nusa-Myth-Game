@@ -83,4 +83,26 @@ class Warrior:
             else:
                 self.idle()
 
+    def idle(self):
+        self.action = 0
+        self.frame_index = 0
+        self.update_time = pygame.time.get_ticks() 
+
+    def attack_target(self, target):
+        critical = random.randint(0, self.critical_damage)
+        damage = self.attack + critical
+        target.health -= damage
+        target.get_attacked()
+        if target.health < 1:
+            target.health = 0
+            target.alive = False
+            target.dead()
+        panel_text = Panelinfo(target.image_rect.centerx, target.image_rect.y, f'Damage: {damage}', 'Red')
+        panel_text_group.add(panel_text)
+        self.action = 1
+        self.frame_index = 0
+        self.update_time = pygame.time.get_ticks()
+
+    
+
 
