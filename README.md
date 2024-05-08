@@ -24,9 +24,9 @@ Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana playe
 ![UML PBO drawio](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/7b3f8b2b-1117-4555-81e6-a9ae4d19587f)
 
 ## Kontributor Pengembang Aplikasi
+- Deva Ahmad
 - Arkan Hariz Chandrawinata Liem
 - Bagas Andreanto
-- Deva Ahmad
 - Dzaki Gastiadirijal
 - Fawwaz Abhitah Sugiarto
 - Muhammad Fadhil Alfitra Budi
