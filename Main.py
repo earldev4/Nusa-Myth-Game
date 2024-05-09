@@ -23,6 +23,7 @@ lose_image = pygame.image.load('Background/lose_background.png').convert_alpha()
 restart_image = pygame.image.load('Items/restart.png')
 back_to_menu = pygame.image.load('Items/back.png')
 
+
 current_fighter = 1
 total_fighter = 2
 action_cooldown = 0
@@ -54,19 +55,26 @@ class Warrior:
             temp_list.append(img)
         self.animation_list.append(temp_list)
         temp_list = []
+        for i in range (5):
+            img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Attacked/{i}.png').convert_alpha()
+            img = pygame.transform.scale(img, (img.get_width() * 3, img.get_height() * 3))
+            temp_list.append(img)
+        self.animation_list.append(temp_list)
+        temp_list = []
         for i in range (8):
             img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Attack/{i}.png').convert_alpha()
             img = pygame.transform.scale(img, (img.get_width() * 3, img.get_height() * 3))
             temp_list.append(img)
         self.animation_list.append(temp_list)
         temp_list = []
-        for i in range (3):
-            img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Attacked/{i}.png').convert_alpha()
+        for i in range (10):
+            img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Dead/{i}.png').convert_alpha()
             img = pygame.transform.scale(img, (img.get_width() * 3, img.get_height() * 3))
             temp_list.append(img)
         self.animation_list.append(temp_list)
-        for i in range (10):
-            img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Dead/{i}.png').convert_alpha()
+        temp_list = []
+        for i in range (7):
+            img = pygame.image.load(f'Character/{type}/Warrior/{self.name}/Heal/{i}.png').convert_alpha()
             img = pygame.transform.scale(img, (img.get_width() * 3, img.get_height() * 3))
             temp_list.append(img)
         self.animation_list.append(temp_list)
@@ -104,13 +112,18 @@ class Warrior:
             target.dead()
         panel_text = Panelinfo(target.image_rect.centerx, target.image_rect.y, f'Damage: {damage}', 'Red')
         panel_text_group.add(panel_text)
-        self.action = 1
+        self.action = 2
         self.frame_index = 0
         self.update_time = pygame.time.get_ticks()        
     
     def get_attacked(self):
-        self.action = 0
-        self.frame_index = 3
+        self.action = 1
+        self.frame_index = 0
+        self.update_time = pygame.time.get_ticks()
+    
+    def healing(self):
+        self.action = 4
+        self.frame_index = 0
         self.update_time = pygame.time.get_ticks()
       
     def dead(self):
@@ -271,7 +284,6 @@ def draw_panel():
     draw_text(f'{Enemy_obj.name} HP: {Enemy_obj.health}', text_font, 'Green', 900, 510)
     draw_text(f'Ramuan tersisa: {Player_obj.potions}', text_font,'Green', 160, 600)
 
-
 Player_obj = Warrior('Gatot Kaca', 'Player', 100,100, 10, 5, 1)
 Enemy_obj = Warrior('Gatot Kaca', 'Enemy', 100,100, 10, 5, 1)
 
@@ -282,6 +294,10 @@ potion_button = button.Button(screen, 100, 580, potion_image , 50, 50)
 restart_button = button.Button(screen, 300, 10, restart_image, 200, 120)
 back_button = button.Button (screen, 700, 10, back_to_menu, 200, 120)
 
+att_sfx = pygame.mixer.Sound(f'Sound/{Player_obj.name}/punch.mp3')
+hl_sfx = pygame.mixer.Sound(f'Sound/{Player_obj.name}/heal.mp3')
+win_sfx = pygame.mixer.Sound(f'Sound/win.mp3')
+lose_sfx = pygame.mixer.Sound(f'Sound/lose.mp3')
 
 while True:
 
@@ -317,6 +333,7 @@ while True:
                 action_cooldown += 1
                 if action_cooldown >= action_wait_time:
                     if attack == True and target != None:
+                        att_sfx.play()
                         Player_obj.attack_target(Enemy_obj)
                         current_fighter += 1
                         action_cooldown = 0
@@ -326,6 +343,8 @@ while True:
                                 heal_amount = 30
                             else:
                                 heal_amount = Player_obj.max_health - Player_obj.health
+                            hl_sfx.play()
+                            Player_obj.healing()
                             Player_obj.health += heal_amount
                             panel_text = Panelinfo(Player_obj.image_rect.centerx, Player_obj.image_rect.y, f'Health + {heal_amount}', 'Green')
                             panel_text_group.add(panel_text)
@@ -346,6 +365,8 @@ while True:
                                 heal_amount = 30
                         else:
                             heal_amount = Enemy_obj.max_health - Enemy_obj.health
+                        hl_sfx.play()
+                        Enemy_obj.healing()
                         Enemy_obj.health += heal_amount
                         panel_text = Panelinfo(Enemy_obj.image_rect.centerx, Enemy_obj.image_rect.y, f'Health + {heal_amount}', 'Green')
                         panel_text_group.add(panel_text)
@@ -355,6 +376,7 @@ while True:
                         potion = False
                     else:
                         Enemy_obj.attack_target(Player_obj)
+                        att_sfx.play()
                         current_fighter += 1
                         action_cooldown = 0
             else:
@@ -366,8 +388,10 @@ while True:
 
     if game_over != 0:
         if game_over == 1:
+            win_sfx.play()
             screen.blit(win_image, (200,0))
         if game_over == -1:
+            lose_sfx.play()
             screen.blit(lose_image, (150,0))
         if restart_button.draw():
             Player_obj.reset()
