@@ -7,10 +7,18 @@ Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana playe
 
 
 ## Dependensi Paket (Library) yang digunakan
+
 - Modul Pygame
+
+> Modul yang digunakan untuk membuat permainan video (video game) dan multimedia. Modul ini menyediakan fungsi-fungsi yang memudahkan pembuatan grafik, animasi, suara, dan kontrol input pengguna.
+
 - Modul Random
+
+> Modul standar Python yang digunakan untuk menghasilkan angka acak. Modul ini menyediakan berbagai fungsi untuk menghasilkan angka acak, memilih elemen secara acak dari suatu urutan, dan mengacak urutan elemen.
+
 - Modul Sys
 
+> Modul standar Python yang menyediakan akses ke beberapa variabel dan fungsi yang berhubungan dengan interpreter Python. Modul ini sering digunakan untuk menangani argumen baris perintah, memanipulasi aliran input/output, dan berinteraksi dengan interpreter.
 
 ## Cara Bermain 
 ![main menu](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/0657d94b-cec0-488b-9420-876084b66ded)
