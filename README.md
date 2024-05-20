@@ -45,4 +45,9 @@ Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana playe
 
 
 ## Referensi
-SOON
+- [PyGame Tutorial](https://www.youtube.com/watch?v=AY9MnQ4x3zk)
+- [Modul Class dan Objek]
+- [Modul Abstraksi dan Enkapsulasi]
+- [Modul Inheritance and Polymorphism]
+- [Modul Kelas Abstrak dan Interface]
+- [Modul GUI]
