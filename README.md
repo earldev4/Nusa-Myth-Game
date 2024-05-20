@@ -34,14 +34,14 @@ Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana playe
 
 
 ## Kontributor Pengembang Aplikasi
-| Nama | NIM |
-| ------ | ------ |
-| Arkan Hariz Chandrawinata Liem | 122140038 |
-| Bagas Andreanto | 122140017 |
-| Deva Ahmad | 122140015 |
-| Dzaki Gastiadirijal | 122140030 |
-| Fawwaz Abhitah Sugiarto | 122140014 |
-| Muhammad Fadhil Alfitra Budi | 122140025 |
+| Nama | NIM | Kontribusi |
+| ------ | ------ | ------ |
+| Arkan Hariz Chandrawinata Liem | 122140038 | Programmer |
+| Bagas Andreanto | 122140017 | Programmer, Music Asset |
+| Deva Ahmad | 122140015 | Lead Programmer, illustrator, Music Asset |
+| Dzaki Gastiadirijal | 122140030 | Programmer |
+| Fawwaz Abhitah Sugiarto | 122140014 | Programmer, Desainer |
+| Muhammad Fadhil Alfitra Budi | 122140025 | Programmer |
 
 
 ## Referensi
