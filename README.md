@@ -9,7 +9,6 @@ Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana playe
 - Modul Pygame
 - Modul Random
 - Modul Sys
-- Modul Subprocess
 
 ## Cara Bermain 
 ![Main Menu Game](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/fc81aba2-96f5-4688-811d-5b054d7c1dfb)
