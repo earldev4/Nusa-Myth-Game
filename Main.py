@@ -109,7 +109,7 @@ class PilihHero:
         self.role = role
         self.pilihan = pilihan
 
-        Player_obj = self.role(self.pilihan, 'Player', 100, 100, 100)
+        Player_obj = self.role(self.pilihan, 'Player', 100, 100, 10)
 
 Player_health_bar = HealthBar(100, 550, Player_obj.health, Player_obj.max_health)
 Enemy_health_bar = HealthBar(900, 550, Enemy_obj.health, Player_obj.max_health)
