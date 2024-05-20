@@ -1,5 +1,4 @@
 import pygame, sys, random, button
-from sys import exit
 from menu_button import MenuButton, MenuImageButton
 from musik import Music
 from info import Panelinfo
