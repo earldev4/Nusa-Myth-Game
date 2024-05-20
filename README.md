@@ -28,6 +28,8 @@ Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana playe
 ![win](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/bdcdf473-eccd-4e7c-a396-af9d1bde9c47)
 - Tampilan Menang. Ketika health musuh berada pada 0, maka akan muncul tampilan menang. kamu bisa melakukan restart atau kembali ke main menu
 
+![lose](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/b1a92112-f67d-4f38-8e18-1c7f62a92793)
+- Tampilan Kalah. Ketika health kamu berada pada 0, maka akan muncul tampilan kalah. kamu bisa melakukan restart atau kembali ke main menu
 
 ## UML Diagram Proyek
 ![UML GAME drawio](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/d8e3b285-6475-4fc6-ad39-534a86a35c03)
