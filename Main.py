@@ -108,7 +108,7 @@ class PilihHero:
         self.role = role
         self.pilihan = pilihan
 
-        Player_obj = self.role(self.pilihan, 'Player', 100, 100, 10)
+        Player_obj = self.role(self.pilihan, 'Player', 100, 100, 100)
 
 Player_health_bar = HealthBar(100, 550, Player_obj.health, Player_obj.max_health)
 Enemy_health_bar = HealthBar(900, 550, Enemy_obj.health, Player_obj.max_health)
@@ -125,7 +125,9 @@ win_sfx = pygame.mixer.Sound(f'Sound/win.mp3')
 lose_sfx = pygame.mixer.Sound(f'Sound/lose.mp3')
 
 SFX = pygame.mixer.Sound("MAIN MENU/background_music/SFX angklung.mp3")
-BACKGROUND = pygame.image.load("MAIN MENU/background/Brick_Background.png")
+BACKGROUND = pygame.image.load("MAIN MENU/background/background1.png")
+BACKGROUND2 = pygame.image.load("MAIN MENU/background/background2.jpg")
+BACKGROUND3 = pygame.image.load("MAIN MENU/background/background3.jpg")
 
 # obj dari class music, di awal di set lagu menu, nti di sebelum start di ganti lagunya pake method change
 BGM = Music()
@@ -145,18 +147,18 @@ def options():
     while True:
         POSISI_MOUSE = pygame.mouse.get_pos()
 
-        screen.blit(BACKGROUND, (0, 0))
+        screen.blit(BACKGROUND2, (0, 0))
 
 
         OPTIONS_BACK = MenuButton(image=None, pos=(640, 460), 
-                            text_input="BACK", font=get_font(75), base_color="White", hovering_color=(23,161,117))
+                            text_input="BACK", font=get_font(75), base_color="White", hovering_color=(32, 30, 29))
 
         OPTIONS_BACK.changeColor(POSISI_MOUSE)
         OPTIONS_BACK.update(screen)
 
         bgm_button_text = "Turn Music Off" if bgm_playing else "Turn Music On"
         BGM_BUTTON = MenuButton(image=None, pos=(640, 360), 
-                            text_input=bgm_button_text, font=get_font(40), base_color="White", hovering_color=(23,161,117))
+                            text_input=bgm_button_text, font=get_font(40), base_color="White", hovering_color=(32, 30, 29))
 
         BGM_BUTTON.changeColor(POSISI_MOUSE)
         BGM_BUTTON.update(screen)
@@ -186,7 +188,7 @@ def credit():
     while True:
         CREDIT_MOUSE_POS = pygame.mouse.get_pos()
 
-        screen.blit(BACKGROUND, (0, 0))
+        screen.blit(BACKGROUND2, (0, 0))
 
         credits = [
             "Credits",
@@ -201,13 +203,13 @@ def credit():
         ]
         y_offset = 100
         for line in credits:
-            credit_text = get_credit_font(30).render(line, True, "White")
+            credit_text = get_credit_font(30).render(line, True, (32, 30, 29))
             credit_rect = credit_text.get_rect(center=(640, y_offset))
             screen.blit(credit_text, credit_rect)
             y_offset += 50
 
         CREDIT_BACK = MenuButton(image=None, pos=(640, 650), 
-                            text_input="BACK", font=get_credit_font(40), base_color="White", hovering_color=(23,161,117))
+                            text_input="BACK", font=get_credit_font(40), base_color="White", hovering_color=(32, 30, 29))
 
         CREDIT_BACK.changeColor(CREDIT_MOUSE_POS)
         CREDIT_BACK.update(screen)
@@ -275,30 +277,30 @@ def play():
     while True:
         POSISI_MOUSE = pygame.mouse.get_pos()
 
-        screen.blit(BACKGROUND, (0, 0))
+        screen.blit(BACKGROUND3, (0, 0))
 
         WARRIOR_Button = MenuButton(image=None, pos=(340, 70), 
-                            text_input="WARRIOR", font=get_font(75), base_color="White", hovering_color=(23,161,117))
+                            text_input="WARRIOR", font=get_font(75), base_color="White", hovering_color=(32, 30, 29))
         hero1 = MenuButton(image=None, pos=(340, 200), 
-                            text_input="Bandung Bondowoso", font=get_font(50), base_color="White", hovering_color=(23,161,117))
+                            text_input="Bandung Bondowoso", font=get_font(50), base_color="White", hovering_color=(32, 30, 29))
         hero2 = MenuButton(image=None, pos=(340, 280), 
-                            text_input="Garuda", font=get_font(50), base_color="White", hovering_color=(23,161,117))
+                            text_input="Garuda", font=get_font(50), base_color="White", hovering_color=(32, 30, 29))
         hero3 = MenuButton(image=None, pos=(340, 360), 
-                            text_input="Gatot Kaca", font=get_font(50), base_color="White", hovering_color=(23,161,117))
+                            text_input="Gatot Kaca", font=get_font(50), base_color="White", hovering_color=(32, 30, 29))
         
         MAGE_Button = MenuButton(image=None, pos=(940, 70), 
-                            text_input="MAGE", font=get_font(75), base_color="White", hovering_color=(23,161,117))
+                            text_input="MAGE", font=get_font(75), base_color="White", hovering_color=(32, 30, 29))
         hero4 = MenuButton(image=None, pos=(940, 200), 
-                            text_input="Banaspati", font=get_font(50), base_color="White", hovering_color=(23,161,117))
+                            text_input="Banaspati", font=get_font(50), base_color="White", hovering_color=(32, 30, 29))
         hero5 = MenuButton(image=None, pos=(940, 280), 
-                            text_input="Nyi Roro Kidul", font=get_font(50), base_color="White", hovering_color=(23,161,117))
+                            text_input="Nyi Roro Kidul", font=get_font(50), base_color="White", hovering_color=(32, 30, 29))
         hero6 = MenuButton(image=None, pos=(940, 360), 
-                            text_input="Samsudin", font=get_font(50), base_color="White", hovering_color=(23,161,117))
+                            text_input="Samsudin", font=get_font(50), base_color="White", hovering_color=(32, 30, 29))
         
         BACK_Button = MenuButton(image=None, pos=(340, 660), 
-                            text_input="BACK", font=get_font(75), base_color="White", hovering_color=(23,161,117))
+                            text_input="BACK", font=get_font(75), base_color="White", hovering_color=(32, 30, 29))
         CONTINUE_Button = MenuButton(image=None, pos=(940, 660), 
-                            text_input="CONTINUE", font=get_font(75), base_color="White", hovering_color=(23,161,117))
+                            text_input="CONTINUE", font=get_font(75), base_color="White", hovering_color=(32, 30, 29))
 
         BACK_Button.changeColor(POSISI_MOUSE)
         CONTINUE_Button.changeColor(POSISI_MOUSE)
@@ -323,7 +325,7 @@ def play():
         selected_hero_name = list_hero[selected_hero].name if selected_hero else "No Hero Selected"
         selected_hero_text = "Selected Hero: " + selected_hero_name
 
-        selected_hero_button = MenuButton(image=None, pos=(640, 550),text_input=selected_hero_text, font=get_font(40), base_color="White", hovering_color=(23,161,117))
+        selected_hero_button = MenuButton(image=None, pos=(640, 550),text_input=selected_hero_text, font=get_font(40), base_color="White", hovering_color=(32, 30, 29))
         selected_hero_button.update(screen)
 
         for event in pygame.event.get():
@@ -368,7 +370,7 @@ def pilih_arena():
     while True:
         POSISI_MOUSE = pygame.mouse.get_pos()
 
-        screen.blit(BACKGROUND, (0, 0))
+        screen.blit(BACKGROUND3, (0, 0))
 
         button_candi = pygame.image.load('Background/upper_background.png')
         button_candi_size = (300, 200)
@@ -383,14 +385,14 @@ def pilih_arena():
         menu_button_hutan = MenuImageButton(button_hutan, (980, 370), None, pygame.font.Font(None, 36), (255, 255, 255), (23, 161, 117), button_hutan_size)
 
         BACK_Button = MenuButton(image=None, pos=(340, 660), 
-                            text_input="BACK", font=get_font(75), base_color="White", hovering_color=(23,161,117))
+                            text_input="BACK", font=get_font(75), base_color="White", hovering_color=(32, 30, 29))
         START_Button = MenuButton(image=None, pos=(940, 660), 
-                            text_input="START", font=get_font(75), base_color="White", hovering_color=(23,161,117))
+                            text_input="START", font=get_font(75), base_color="White", hovering_color=(32, 30, 29))
 
         selected_arena_name = list_arena[selected_arena] if selected_arena else "No arena Selected"
         selected_arena_text = "Selected arena: " + selected_arena_name
 
-        selected_arena_button = MenuButton(image=None, pos=(640, 550),text_input=selected_arena_text, font=get_font(40), base_color="White", hovering_color=(23,161,117))
+        selected_arena_button = MenuButton(image=None, pos=(640, 550),text_input=selected_arena_text, font=get_font(40), base_color="White", hovering_color=(32, 30, 29))
         selected_arena_button.update(screen)
 
         BACK_Button.changeColor(POSISI_MOUSE)
