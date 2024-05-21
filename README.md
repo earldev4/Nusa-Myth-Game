@@ -42,6 +42,8 @@ Nusa-Myth adalah sebuah game sederhana dengan mengusung konsep RPG, dimana playe
 ## UML Diagram Proyek
 ![UML GAME drawio](https://github.com/earldev4/Nusa-Myth-Game/assets/115122603/d8e3b285-6475-4fc6-ad39-534a86a35c03)
 
+## Video Presentasi 
+[Link Video Presentasi](https://www.youtube.com/watch?v=e_fhhXRvgFE&ab_channel=DZAKIGASTIADIRRIJAL)
 
 ## Kontributor Pengembang Aplikasi
 | Nama | NIM | Kontribusi |
